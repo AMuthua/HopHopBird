@@ -6,7 +6,7 @@ public class App {
         int boardWidth = 360;
         int boardHeight = 640;
 
-        JFrame frame = new JFrame("Flappy Bird");
+        JFrame frame = new JFrame("Hop Hop Bird");
         // frame.setVisible(true);
         frame.setSize(boardWidth, boardHeight);
         frame.setLocationRelativeTo(null);
