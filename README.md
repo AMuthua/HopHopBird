@@ -37,3 +37,4 @@ class Bird {
         this.img = img;
     }
 }
+ 
