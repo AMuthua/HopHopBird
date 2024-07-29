@@ -68,6 +68,7 @@ public class FlappyBird extends JPanel implements ActionListener, KeyListener{
     ArrayList<Pipe> pipes;
 
     Timer gameLoop;
+    Timer placePipesTimer;
 
 
     FlappyBird() {
@@ -86,6 +87,17 @@ public class FlappyBird extends JPanel implements ActionListener, KeyListener{
         // bird image : Contstructor
         bird = new Bird(birdImg);
 
+        /*place pipes timer
+            TIMER LOGIC: 1000 = 1 second
+        
+        */ 
+        placePipesTimer = new Timer(1500, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                placePipes();
+            }
+        });
+
         // game timer loop
         gameLoop = new Timer(1000/60, this);
         gameLoop.start();
@@ -95,7 +107,10 @@ public class FlappyBird extends JPanel implements ActionListener, KeyListener{
         Because we have many pipes [Line:68]
         We have to add them into an array list by creating a Function.
     */ 
-
+    public void PlacePipes(){
+        Pipe topPipe = new Pipe(topPipeImg);
+        pipes.add(topPipe);
+    }
 
     public void paintComponent(Graphics g){
         super.paintComponent(g);
