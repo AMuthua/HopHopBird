@@ -98,6 +98,7 @@ public class FlappyBird extends JPanel implements ActionListener, KeyListener{
                 placePipes(); // a timer to call place pipes every 1500ms: 1.5 seconds
             }
         });
+        placePipesTimer.start();
 
         // game timer loop
         gameLoop = new Timer(1000/60, this);
@@ -112,6 +113,7 @@ public class FlappyBird extends JPanel implements ActionListener, KeyListener{
         Pipe topPipe = new Pipe(topPipeImg);
         pipes.add(topPipe);
     }
+    
 
     public void paintComponent(Graphics g){
         super.paintComponent(g);
