@@ -52,7 +52,7 @@ public class FlappyBird extends JPanel implements ActionListener, KeyListener{
         int width = pipeWidth;
         int height = pipeHeight;
         Image img; // this is important as we have two pipes, the top and bottom.
-        boolean passed = false; // used to check is the bird has b=hooped through the pipe
+        boolean passed = false; // used to check is the bird has hooped through the pipe
 
         Pipe(Image img) {
             this.img = img;
