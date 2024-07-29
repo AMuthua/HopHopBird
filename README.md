@@ -1,4 +1,4 @@
-# FlappyBird Game
+# HopHop Birdie Game
 
 ## Overview
 This project is a simple implementation of the Flappy Bird game using Java Swing for the GUI and basic game mechanics.
