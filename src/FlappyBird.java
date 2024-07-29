@@ -36,8 +36,11 @@ public class FlappyBird extends JPanel implements ActionListener, KeyListener{
 
     }
 
-    // Pipes Through which the Bird Hops through
+    /*
+    Pipes Through which the Bird Hops through
+        Definition of the X and Y axis
     
+    */
 
     // Game logic
     Bird bird;
