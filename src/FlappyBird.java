@@ -41,6 +41,10 @@ public class FlappyBird extends JPanel implements ActionListener, KeyListener{
         Definition of the X and Y axis
     
     */
+    int pipeX = boardWidth;
+    int pipeY = 0; // this means the pipe is going to start at top of screen and right side as well
+    int pipeWidth  = 64;
+    int pipeHeight = 512;
 
     // Game logic
     Bird bird;
