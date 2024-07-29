@@ -107,7 +107,7 @@ public class FlappyBird extends JPanel implements ActionListener, KeyListener{
         Because we have many pipes [Line:68]
         We have to add them into an array list by creating a Function.
     */ 
-    public void PlacePipes(){
+    public void placePipes(){
         Pipe topPipe = new Pipe(topPipeImg);
         pipes.add(topPipe);
     }
