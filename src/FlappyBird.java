@@ -46,8 +46,22 @@ public class FlappyBird extends JPanel implements ActionListener, KeyListener{
     int pipeWidth  = 64;
     int pipeHeight = 512;
 
+    class Pipe {
+        int x = pipeX;
+        int y  = pipeY;
+        int width = pipeWidth;
+        int height = pipeHeight;
+        Image img; // this is important as we have two pipes, the top and bottom.
+        boolean passed = false; // used to check is the bird has b=hooped through the pipe
+
+        Pipe(Image img) {
+            this.img = img;
+        }
+    }
+
     // Game logic
     Bird bird;
+    int velocityX = -4; // moves pipes to the left speed(and simulates the bird moving right by -4 px every frame)
     int velocityY = 0; // when the game starts the bird just falls down.
     int gravity = 1;
 
