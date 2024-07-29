@@ -65,6 +65,8 @@ public class FlappyBird extends JPanel implements ActionListener, KeyListener{
     int velocityY = 0; // when the game starts the bird just falls down.
     int gravity = 1;
 
+    ArrayList<Pipe> pipes;
+
     Timer gameLoop;
 
 
@@ -88,6 +90,12 @@ public class FlappyBird extends JPanel implements ActionListener, KeyListener{
         gameLoop = new Timer(1000/60, this);
         gameLoop.start();
     }
+
+    /*
+        Because we have many pipes [Line:68]
+        We have to add them into an array list by creating a Function.
+    */ 
+
 
     public void paintComponent(Graphics g){
         super.paintComponent(g);
