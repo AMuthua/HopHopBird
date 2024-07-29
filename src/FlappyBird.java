@@ -86,6 +86,7 @@ public class FlappyBird extends JPanel implements ActionListener, KeyListener{
         
         // bird image : Contstructor
         bird = new Bird(birdImg);
+        pipes = new ArrayList<Pipe>();
 
         /*place pipes timer
             TIMER LOGIC: 1000 = 1 second
@@ -94,7 +95,7 @@ public class FlappyBird extends JPanel implements ActionListener, KeyListener{
         placePipesTimer = new Timer(1500, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                placePipes();
+                placePipes(); // a timer to call place pipes every 1500ms: 1.5 seconds
             }
         });
 
@@ -117,6 +118,8 @@ public class FlappyBird extends JPanel implements ActionListener, KeyListener{
         draw(g);
     }
 
+    // This function is for drawing all the components in the game
+
     public void draw(Graphics g){
         // System.out.println("test");
         // background
@@ -124,6 +127,12 @@ public class FlappyBird extends JPanel implements ActionListener, KeyListener{
 
         // bird
         g.drawImage(bird.img, bird.x, bird.y, bird.width, bird.height, null);
+
+        // pipes
+        for (int i = 0; i < pipes.size(); i++) {
+            Pipe pipe = pipes.get(i);
+            g.drawImage(pipe.img, pipe.x, pipe.y, pipe.width, pipe.height, null);
+        }
     }
 
     // This is the move function for the bird
@@ -142,6 +151,11 @@ public class FlappyBird extends JPanel implements ActionListener, KeyListener{
         bird.y += velocityY;
         bird.y = Math.max(bird.y,0);
 
+        // Pipe Mechanics
+        for (int i = 0; i < pipes.size(); i++) {
+            Pipe pipe = pipes.get(i);
+            pipe.x += velocityX; // each frame we move out pipe -4 pixels to the left
+        }
 
     }
 
