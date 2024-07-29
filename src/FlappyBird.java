@@ -66,6 +66,7 @@ public class FlappyBird extends JPanel implements ActionListener, KeyListener{
     int gravity = 1;
 
     ArrayList<Pipe> pipes;
+    Random random = new Random(); // Adding the pipe logic to be random heights
 
     Timer gameLoop;
     Timer placePipesTimer;
@@ -110,8 +111,27 @@ public class FlappyBird extends JPanel implements ActionListener, KeyListener{
         We have to add them into an array list by creating a Function.
     */ 
     public void placePipes(){
+        /*
+            Math.random() gives us a height between 0 - 1
+            We multiply it by pipeHeight/2 -> which gives 256
+            so between 0 - 256
+
+            SO,
+            0 - 128 - (0-256) which means if we get 0 we have - pipeHeight/4 and pipeHeight is 3/4
+        */ 
+        int randomPipeY = (int) (pipeY - pipeHeight/4 -Math.random()*(pipeHeight/2));
+
+        /*Working on the bottom pipe*/
+        int openingSpace = boardHeight/4;
+
         Pipe topPipe = new Pipe(topPipeImg);
+        topPipe.y = randomPipeY;
         pipes.add(topPipe);
+
+        // this is the top of the pipe plus pipe height and add the opening space and add the pipe to the array list
+        Pipe bottomPipe = new Pipe(bottomPipeImg);
+        bottomPipe.y = topPipe.y  + pipeHeight + openingSpace;
+        pipes.add(bottomPipe);
     }
     
 
